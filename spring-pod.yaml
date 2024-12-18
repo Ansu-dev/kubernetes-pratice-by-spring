@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: spring-pod
+
+spec:
+  containers:
+    - name: spring-container
+      image: spring-server
+      ports:
+        - containerPort: 8080 # 명시적으로 선언
+      imagePullPolicy: IfNotPresent # 이미지 풀 정책(이미지가 없다고 에러가 발생)
