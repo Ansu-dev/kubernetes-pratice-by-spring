@@ -25,7 +25,13 @@ spec:
         imagePullPolicy: IfNotPresent
         env: # backend-app내의 환경변수 사용
           - name: MY_ACCOUNT
-            value: ansu
+            valueFrom:
+              configMapKeyRef:
+                name: spring-config
+                key: my-account
           - name: MY_PASSWORD
-            value: pwd1234
+            valueFrom:
+              configMapKeyRef:
+                name: spring-config
+                key: my-password
 
