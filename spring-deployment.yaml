@@ -19,8 +19,13 @@ spec:
     spec:
       containers:
       - name: spring-container
-        image: spring-server:1.0
+        image: spring-server:2.0
         ports:
-        - containerPort: 8080
+        - containerPort: 8080 # 컨테이너 내부의 몇번포트로 연결할 것인지
         imagePullPolicy: IfNotPresent
+        env: # backend-app내의 환경변수 사용
+          - name: MY_ACCOUNT
+            value: ansu
+          - name: MY_PASSWORD
+            value: pwd1234
 
