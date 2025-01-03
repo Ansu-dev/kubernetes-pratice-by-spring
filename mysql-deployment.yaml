@@ -30,3 +30,11 @@ spec:
                 configMapKeyRef:
                   name: mysql-config
                   key: mysql-database
+          volumeMounts: # 어떤 경로로 볼륨으로 사용할 지
+            - name: mysql-persistent-storage # volumes와 일치 시켜야함
+              mountPath: /var/lib/mysql
+
+      volumes:
+        - name: mysql-persistent-storage
+          persistentVolumeClaim:
+            claimName: mysql-pvc # 연결시킬 pvc
